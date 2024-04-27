@@ -1,5 +1,6 @@
 <?php 
 session_start();
-const BASEDIR = __DIR__;
+const URL       = 'http://localhost/CMS-PHPBasics/';
+const BASEDIR   = __DIR__;
 
 ?>

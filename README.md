@@ -19,3 +19,10 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - [ ] Proje İşlemleri
 - [ ] İstatistikler
 
+### Neler Yapıldı?
+
+- MVC Yapısı kuruldu
+- Routing işlemleri için Sınıflar hazırlandı
+- View Hazırlandı
+- Tema Entegre Edildi
+- Routerlar Oluşturuldu
