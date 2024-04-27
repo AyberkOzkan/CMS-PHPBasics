@@ -26,3 +26,4 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - View Hazırlandı
 - Tema Entegre Edildi
 - Routerlar Oluşturuldu
+- Helpers oluşturuldu
