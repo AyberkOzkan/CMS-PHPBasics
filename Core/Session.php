@@ -19,6 +19,10 @@ class Session{
         session_start();
         session_destroy();        
     }
+
+    public static function getAllSession(){
+        return $_SESSION;
+    }
     
 }
 
