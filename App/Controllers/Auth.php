@@ -17,8 +17,36 @@ class Auth extends BaseController{
     public function Login(){
         $data = $this -> request -> post();
 
+        if (!$data['email']) {
+            $status = 'error';
+            $title = 'Ops';
+            $msg = 'E-Posta Adresinizi giriniz.';
+            echo json_encode([
+                'status' => $status,
+                'title' => $title,
+                'msg' => $msg
+            ]);
+            exit();
+            
+        }
+
+        if (!$data['password']) {
+            $status = 'error';
+            $title = 'Ops';
+            $msg = 'Şifrenizi giriniz.';
+            echo json_encode([
+                'status' => $status,
+                'title' => $title,
+                'msg' => $msg
+            ]);
+            exit();
+             
+        }
+
         $authModel = new ModelAuth();
         $access = $authModel -> userLogin($data);
+
+        
         if ($access) {
             $status = 'success';
             $title = 'İşlem Başarılı';
@@ -33,7 +61,7 @@ class Auth extends BaseController{
         } else {
             $status = 'error';
             $title = 'Ops';
-            $msg = 'Beklenmedik bir hata meydana geldi.';
+            $msg = 'E-Posta adresiniz veya şifreniz hatalı.';
             echo json_encode([
                 'status' => $status,
                 'title' => $title,

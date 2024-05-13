@@ -16,6 +16,12 @@ class db {
             return $this -> connect -> query($sql, \PDO::FETCH_ASSOC) -> fetchAll() ?? [];
         }
     }
+
+    public function remove($sql) {
+
+        return $this -> connect -> query($sql) ?? false;
+
+    }
 }
 
 ?>

@@ -15,7 +15,10 @@
 
         $cms -> router -> get('/', 'Controllers\Customer@Index');
         $cms -> router -> get('/add', 'Controllers\Customer@Add');
+        $cms -> router -> post('/add', 'Controllers\Customer@CreateCustomer');
         $cms -> router -> get('/edit/([0-9]+)', 'Controllers\Customer@Edit');
+        $cms -> router -> post('/edit', 'Controllers\Customer@EditCustomer');
+        $cms -> router -> post('/delete', 'Controllers\Customer@RemoveCustomer');
         // $cms -> router -> get('/projects/([0-9]+)', 'Customer@Projects');
         // $cms -> router -> post('/edit/([0-9]+)', 'Customer@Edit');
         // $cms -> router -> post('/remove/([0-9]+)', 'Customer@Remove');

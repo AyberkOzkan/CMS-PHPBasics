@@ -5,17 +5,17 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 
 ### Yapılacaklar
 
-- [ ] Composer PSR4 Autoload Sistemi
-- [ ] OOP MVC Çatısı
-- [ ] Klasör Yapısı
-- [ ] Routing Sınıf Entegrasyonu (bramus/router)
-- [ ] Yardımcı Sınıfların Hazırlanması
-- [ ] Yardımcı Fonksiyonların Dahil Edilmesi
-- [ ] VeriTabanı Hazırlanması
+- [x] Composer PSR4 Autoload Sistemi
+- [x] OOP MVC Çatısı
+- [x] Klasör Yapısı
+- [x] Routing Sınıf Entegrasyonu (bramus/router)
+- [x] Yardımcı Sınıfların Hazırlanması
+- [x] Yardımcı Fonksiyonların Dahil Edilmesi
+- [x] VeriTabanı Hazırlanması
 
 ### Özellikler
-- [ ] Oturum Yönetimi
-- [ ] Müşteri İşlemleri
+- [x] Oturum Yönetimi
+- [x] Müşteri İşlemleri
 - [ ] Proje İşlemleri
 - [ ] İstatistikler
 
@@ -28,4 +28,4 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - Routerlar Oluşturuldu
 - Helpers Oluşturuldu
 - Login işlemleri ve sweetalert 2
-- 
+- DataTable ile müşteriler ve projeleri için tablo oluşturuldu
