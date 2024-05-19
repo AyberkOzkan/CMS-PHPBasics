@@ -16,7 +16,7 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 ### Özellikler
 - [x] Oturum Yönetimi
 - [x] Müşteri İşlemleri
-- [ ] Proje İşlemleri
+- [x] Proje İşlemleri
 - [ ] İstatistikler
 
 ### Neler Yapıldı?
@@ -29,3 +29,5 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - Helpers Oluşturuldu
 - Login işlemleri ve sweetalert 2
 - DataTable ile müşteriler ve projeleri için tablo oluşturuldu
+- Proje ekleme, düzenleme ve silme işlemleri için sayfalar oluşturuldu
+- Müşteriler için detay sayfası oluşturuldu

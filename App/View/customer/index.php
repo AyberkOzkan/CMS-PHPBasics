@@ -49,13 +49,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="customers_table" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>
                     <th>Müşteriler</th>
                     <th>E-Posta</th>
-                    <th>Projeleri</th>
                     <th>Eylem</th>
                   </tr>
                   </thead>
@@ -66,15 +65,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><?= $value['name'] . ' ' . $value['surname'] ?></td>
                         <td><?= $value['email']?></td>
                         <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                          </div>
-                        </td>
-                        <td>
                           <!-- <span class="badge bg-danger">55%</span> -->
-                          <div class="btn-group btn-group-sm">
-                            <button class="btn btn-sm btn-danger" onclick="removeCustomer(<?= $value['id']; ?>)">Sil</button>
-                            <a href="<?= _link('customer/edit/' . $value['id']); ?>" class="btn btn-sm btn-info">Güncelle</a>
+                          <div class="btn-group btn-group-md">
+                            <button class="btn btn-md btn-danger" onclick="confirm(<?= $value['id']; ?>)"><i class="fa fa-trash"></i> </button>
+                            <a href="<?= _link('customer/edit/' . $value['id']); ?>" class="btn btn-md btn-dark"><i class="fa fa-pen"></i> </a>
+                            <a href="<?= _link('customer/detail/' . $value['id']); ?>" class="btn btn-md btn-info"><i class="fa fa-eye"></i> </a>
                           </div>
                         </td>
                       </tr>
@@ -135,6 +130,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?=assets('plugins/sweetalert2/sweetalert2.all.js')?>"></script>
 <script>
 
+  function confirm(id){
+
+    Swal.fire({
+    title: "Silmek istediğinize emin misiniz?",
+    text: "Bu işlem geri alınamaz!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Evet, sil!",
+    cancelButtonText: "Hayır"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      removeCustomer(id);
+      Swal.fire({
+        title: "Silindi!",
+        text: "Silme işlemi başarıyla gerçekleşti.",
+        icon: "success",
+        confirmButtonText: "Tamam"
+      });
+    }
+  });
+
+  }
+
+
   function removeCustomer(id){
     let customer_id = id;
     let formData = new FormData();
@@ -154,39 +175,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           res.data.status
 
         )
-
-
-
-
       })
       .catch((err) => {
         console.log(err);
       });
 
   }
-
-  // const customer = document.getElementById('customer');
-  // customer.addEventListener('submit', (e) => {
-  //   let customer_name = document.getElementById('customer_name').value;
-  //   let customer_surname = document.getElementById('customer_surname').value;
-  //   let customer_company = document.getElementById('customer_company').value;
-  //   let customer_phone = document.getElementById('customer_phone').value;
-  //   let customer_gsm = document.getElementById('customer_gsm').value;
-  //   let customer_email = document.getElementById('customer_email').value;
-  //   let customer_address = document.getElementById('customer_address').value;
-
-
-  //   formData.append('customer_name', customer_name);
-  //   formData.append('customer_surname', customer_surname);
-  //   formData.append('customer_company', customer_company);
-  //   formData.append('customer_phone', customer_phone);
-  //   formData.append('customer_gsm', customer_gsm);
-  //   formData.append('customer_email', customer_email);
-  //   formData.append('customer_address', customer_address);
-
-    
-  //   e.preventDefault();
-  // });
 
 </script>
 <!-- Page specific script -->
