@@ -15,25 +15,17 @@ Class ModelUser extends BaseModel{
     public function editProfile($data){
         
         extract($data);
-
+        $id =intval(Session::getSession('id'));
         $user = $this -> db -> connect -> prepare("UPDATE system_users SET 
-                                            customers.name=?,
-                                            customers.surname=?,
-                                            customers.email=?,
-                                            customers.phone=?,
-                                            customers.gsm=?,
-                                            customers.address=?,
-                                            customers.company=? WHERE customers.id=?
+                                            system_users.name=?,
+                                            system_users.surname=?,
+                                            system_users.email=? WHERE system_users.id=?
                                         ");
         $update = $user -> execute([
-                    $customer_name,
-                    $customer_surname,
-                    $customer_email,
-                    $customer_phone,
-                    $customer_gsm,
-                    $customer_address,
-                    $customer_company,
-                    $customer_id,
+                    $name,
+                    $surname,
+                    $email,
+                    $id,
                 ]);
 
         if ($update) {
@@ -45,6 +37,21 @@ Class ModelUser extends BaseModel{
 
     public function changePassword($data){
 
+        extract($data);
+        $id =intval(Session::getSession('id'));
+        $user = $this -> db -> connect -> prepare("UPDATE system_users SET 
+                                            system_users.password=? WHERE system_users.id=?
+                                        ");
+        $update = $user -> execute([
+                    md5($new_password),
+                    $id
+                ]);
+
+        if ($update) {
+            return true;
+        } else{
+            return false;
+        }
     }
 }
 

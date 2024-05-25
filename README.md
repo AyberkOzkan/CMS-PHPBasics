@@ -33,3 +33,5 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - Müşteriler için detay sayfası oluşturuldu
 - Müşteri Not alımı eklendi
 - Profil sayfası oluşturuldu
+- Profil Güncelleme
+- Proje listesinde Müşteri bilgisi alınması

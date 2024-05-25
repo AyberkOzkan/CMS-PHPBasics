@@ -54,6 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <tr>
             <th>#</th>
             <th>Proje</th>
+            <th>Müşteri</th>
             <th>Durum</th>
             <th>İlerleyiş</th>
             <th>Eylem</th>
@@ -64,6 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <tr id="row_<?= $value['id']; ?>">
                 <td><?= $value['id']?></td>
                 <td><?= $value['title']?></td>
+                <td><?= $value['customer_name'] ? '<a href="'._link('customer/detail/'. $value['customer_id'] . '') .'">' . $value['customer_name'] . '</a>' : null ?></td>
                 <td><?= $value['status'] == 'a' ? 'aktif' : 'pasif';?></td>
                 <td>
                   <?= $value['progress'] ?>%

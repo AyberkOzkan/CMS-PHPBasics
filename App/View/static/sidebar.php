@@ -14,7 +14,7 @@
             <i class="fa fa-user"></i>
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo _sessionNames('name').' '. _sessionNames('surname');?></a>
+          <a href="<?= _link('profile')?>" class="d-block"><?= _sessionNames('name').' '. _sessionNames('surname');?></a>
         </div>
       </div>
 
