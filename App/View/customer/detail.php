@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?=assets('plugins/fontawesome-free/css/all.min.css')?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?=assets('css/adminlte.min.css')?>">
+    <!-- Summernote -->
+    <link rel="stylesheet" href="<?=assets('plugins/summernote/summernote.min.css')?>">
     <!-- sweetalert2 -->
     <link rel="stylesheet" href="<?=assets('plugins/sweetalert2/sweetalert2.css')?>">
 
@@ -70,12 +72,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="tel:<?= $data['customer']['gsm'] ?>" class="nav-link">
                         Telefon: <span class="float-right"><?= $data['customer']['gsm'] ?></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="mailto:<?= $data['customer']['email'] ?>" class="nav-link">
                         E-posta: <span class="float-right "><?= $data['customer']['email'] ?></span>
                         </a>
                     </li>
@@ -90,51 +92,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- /.widget-user -->
             </div>
             <div class="col-md-8">
-                <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Proje</th>
-                    <th>Durum</th>
-                    <th>İlerleyiş</th>
-                    <th>Eylem</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($data['projects'] as $key => $value):?>
-                    <tr id="row_<?= $value['id']; ?>">
-                        <td><?= $value['id']?></td>
-                        <td><?= $value['title']?></td>
-                        <td><?= $value['status'] == 'a' ? 'aktif' : 'pasif';?></td>
-                        <td>
-                        <?= $value['progress'] ?>%
-                        <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: <?= $value['progress'] ?>%"></div>
-                        </div>
-                        </td>
-                        <td>
-                        <!-- <span class="badge bg-danger">55%</span> -->
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-sm btn-danger" onclick="confirm(<?= $value['id']; ?>)">Sil</button>
-                            <a href="<?= _link('project/edit/' . $value['id']); ?>" class="btn btn-sm btn-info">Güncelle</a>
-                        </div>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-                <!-- <tfoot>
-                <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                </tr>
-                </tfoot> -->
-                </table>
+                <textarea name="summernote" id="summernote"> <?= htmlspecialchars_decode($data['customer']['notes']); ?> </textarea>
+                <button style="width: 100%;" class="btn btn-outline-dark" onclick="saveNote()">Kaydet</button>
             </div>
         </div>
-      </div><!-- /.container-fluid -->
+        <div class="row">
+            <div class="col-md-12">
+                    <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Proje</th>
+                        <th>Durum</th>
+                        <th>İlerleyiş</th>
+                        <th>Eylem</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($data['projects'] as $key => $value):?>
+                        <tr id="row_<?= $value['id']; ?>">
+                            <td><?= $value['id']?></td>
+                            <td><?= $value['title']?></td>
+                            <td><?= $value['status'] == 'a' ? 'aktif' : 'pasif';?></td>
+                            <td>
+                            <?= $value['progress'] ?>%
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: <?= $value['progress'] ?>%"></div>
+                            </div>
+                            </td>
+                            <td>
+                            <!-- <span class="badge bg-danger">55%</span> -->
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-sm btn-danger" onclick="confirm(<?= $value['id']; ?>)">Sil</button>
+                                <a href="<?= _link('project/edit/' . $value['id']); ?>" class="btn btn-sm btn-info">Güncelle</a>
+                            </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                    <!-- <tfoot>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </tfoot> -->
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
@@ -160,54 +168,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?=assets('plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 <!-- AdminLTE App -->
 <script src="<?=assets('js/adminlte.min.js')?>"></script>
+<!-- Summernote -->
+<script src="<?=assets('plugins/summernote/summernote.min.js')?>"></script>
 <!-- Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.8/dist/axios.min.js" integrity="sha256-KdYARiowaU79FbmEi0ykLReM0GcAknXDWjBYASERQwQ=" crossorigin="anonymous"></script>
 <!-- sweetalert2 -->
 <script src="<?=assets('plugins/sweetalert2/sweetalert2.all.js')?>"></script>
 <script>
-
-  const customer = document.getElementById('customer');
-  customer.addEventListener('submit', (e) => {
-    let customer_id = document.getElementById('customer_id').value;
-    let customer_name = document.getElementById('customer_name').value;
-    let customer_surname = document.getElementById('customer_surname').value;
-    let customer_company = document.getElementById('customer_company').value;
-    let customer_phone = document.getElementById('customer_phone').value;
-    let customer_gsm = document.getElementById('customer_gsm').value;
-    let customer_email = document.getElementById('customer_email').value;
-    let customer_address = document.getElementById('customer_address').value;
-
-    let formData = new FormData();
-    formData.append('customer_id', customer_id);
-    formData.append('customer_name', customer_name);
-    formData.append('customer_surname', customer_surname);
-    formData.append('customer_company', customer_company);
-    formData.append('customer_phone', customer_phone);
-    formData.append('customer_gsm', customer_gsm);
-    formData.append('customer_email', customer_email);
-    formData.append('customer_address', customer_address);
-
-    axios.post('<?= _link('customer/edit') ?>', formData)
-      .then(res =>{
-        console.log(res);
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 135,
+            placeholder: 'Müşterilerinizle ilgili notlar alabilirsiniz.'
+        });
+    });
 
 
-        swal.fire(
-          res.data.title,
-          res.data.msg,
-          res.data.status
+    function saveNote(){
+        const html = $('#summernote').summernote('code');
+        console.log(html);
 
-        )
+        let formData = new FormData();
 
-        if (res.data.redirect) {
-          window.location.href = res.data.redirect;
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    e.preventDefault();
-  });
+        formData.append('html', html);
+
+        axios.post('<?= _link('customer/note/'. $data['customer']['id'] ) ?>', formData)
+            .then(res =>{
+                console.log(res);
+
+
+                swal.fire(
+                res.data.title,
+                res.data.msg,
+                res.data.status
+
+                )
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
 </script>
 </body>

@@ -31,3 +31,5 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - DataTable ile müşteriler ve projeleri için tablo oluşturuldu
 - Proje ekleme, düzenleme ve silme işlemleri için sayfalar oluşturuldu
 - Müşteriler için detay sayfası oluşturuldu
+- Müşteri Not alımı eklendi
+- Profil sayfası oluşturuldu
