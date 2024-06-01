@@ -3,15 +3,22 @@
 namespace App\Controllers;
 
 use Core\BaseController;
+use App\Model\ModelHome;
+use App\Model\ModelProject;
+use App\Model\ModelCustomer;
 use Core\Session;
 
 class Home extends BaseController{
     public function Index() {
-        $user = [
-            'isim' => 'Ayberk',
-            'soyisim' => 'Özkan',
-            'yas' => 27
-        ];
+        $ModelHome = new ModelHome();
+        $data['totals'] = $ModelHome -> getTotals()['totals'];
+        $data['projects'] = $ModelHome -> getTotals()['projects'];
+
+        $ModelProject = new ModelProject();
+        $data['projects_table'] = $ModelProject -> getProjectsByStatus('a');
+
+        $ModelCustomer = new ModelCustomer();
+        $data['customers_table'] = $ModelCustomer -> getCustomers(5);
 
         $data['navbar'] = $this -> view -> load('static/navbar');
         $data['sidebar'] = $this -> view -> load('static/sidebar');

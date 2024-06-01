@@ -3,6 +3,8 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 
 [patika](https://academy.patika.dev/tr/courses/php-temel/routing-işlemleri)
 
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ### Yapılacaklar
 
 - [x] Composer PSR4 Autoload Sistemi
@@ -17,7 +19,7 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - [x] Oturum Yönetimi
 - [x] Müşteri İşlemleri
 - [x] Proje İşlemleri
-- [ ] İstatistikler
+- [x] İstatistikler
 
 ### Neler Yapıldı?
 
@@ -35,3 +37,20 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 - Profil sayfası oluşturuldu
 - Profil Güncelleme
 - Proje listesinde Müşteri bilgisi alınması
+- Anasayfa da istatistiklerin gösterilmesi
+
+---
+
+![CMS1](/img/CMS1.PNG)
+![CMS2](/img/CMS2.PNG)
+
+---
+## Database ve Tablolar
+
+![CMS3](/img/CMS3.PNG)
+
+![customers](/img/CMScustomers.PNG)
+
+![projects](/img/CMSprojects.PNG)
+
+![system_users](/img/CMSsystem_users.PNG)

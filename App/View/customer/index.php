@@ -50,41 +50,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
         <table id="customers_table" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Müşteriler</th>
-                    <th>E-Posta</th>
-                    <th>Eylem</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($data['customers'] as $key => $value):?>
-                      <tr id="row_<?= $value['id']; ?>">
-                        <td><?= $value['id']?></td>
-                        <td><?= $value['name'] . ' ' . $value['surname'] ?></td>
-                        <td><?= $value['email']?></td>
-                        <td>
-                          <!-- <span class="badge bg-danger">55%</span> -->
-                          <div class="btn-group btn-group-md">
-                            <button class="btn btn-md btn-danger" onclick="confirm(<?= $value['id']; ?>)"><i class="fa fa-trash"></i> </button>
-                            <a href="<?= _link('customer/edit/' . $value['id']); ?>" class="btn btn-md btn-dark"><i class="fa fa-pen"></i> </a>
-                            <a href="<?= _link('customer/detail/' . $value['id']); ?>" class="btn btn-md btn-info"><i class="fa fa-eye"></i> </a>
-                          </div>
-                        </td>
-                      </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                  <!-- <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
-                  </tfoot> -->
-                </table>
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Müşteriler</th>
+            <th>E-Posta</th>
+            <th>Eylem</th>
+          </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($data['customers'] as $key => $value):?>
+              <tr id="row_<?= $value['id']; ?>">
+                <td><?= $value['id']?></td>
+                <td><?= $value['name'] . ' ' . $value['surname'] ?></td>
+                <td><?= $value['email']?></td>
+                <td>
+                  <!-- <span class="badge bg-danger">55%</span> -->
+                  <div class="btn-group btn-group-md">
+                    <button class="btn btn-md btn-danger" onclick="confirm(<?= $value['id']; ?>)"><i class="fa fa-trash"></i> </button>
+                    <a href="<?= _link('customer/edit/' . $value['id']); ?>" class="btn btn-md btn-dark"><i class="fa fa-pen"></i> </a>
+                    <a href="<?= _link('customer/detail/' . $value['id']); ?>" class="btn btn-md btn-info"><i class="fa fa-eye"></i> </a>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+          <!-- <tfoot>
+          <tr>
+            <th>Rendering engine</th>
+            <th>Browser</th>
+            <th>Platform(s)</th>
+            <th>Engine version</th>
+            <th>CSS grade</th>
+          </tr>
+          </tfoot> -->
+        </table>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

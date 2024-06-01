@@ -37,7 +37,7 @@
             <a href="<?= _link(''); ?>" class="nav-link">
               <i class="nav-icon fas fa-globe"></i>
               <p>
-                Discover
+                Keşfet
               </p>
             </a>
           </li>
@@ -46,7 +46,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Customers
+                Müşteriler
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -54,13 +54,13 @@
               <li class="nav-item">
                 <a href="<?= _link('customer/add'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Customer Add</p>
+                  <p>Müşteri Ekle</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= _link('customer/'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Customers</p>
+                  <p>Müşterileri Görüntüle</p>
                 </a>
               </li>
             </ul>
@@ -70,7 +70,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Projects
+                Projeler
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -78,13 +78,13 @@
               <li class="nav-item">
                 <a href="<?= _link('project/add'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Projects Add</p>
+                  <p>Proje Ekle</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= _link('project/'); ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Projectss</p>
+                  <p>Projeleri Görüntüle</p>
                 </a>
               </li>
             </ul>

@@ -36,9 +36,14 @@ Class ModelCustomer extends BaseModel{
         }
     }
 
-    public function getCustomers(){
+    public function getCustomers($limit = null){
         
-        return $this-> db -> query('SELECT * FROM customers', true);
+        if ($limit == null) {
+            return $this-> db -> query('SELECT * FROM customers', true);
+        
+        } else {
+            return $this-> db -> query("SELECT * FROM customers ORDER BY customers.id DESC LIMIT $limit", true);
+        }
     }
 
     public function getCustomer($id){
