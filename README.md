@@ -47,10 +47,10 @@ PHPBasics Müşteri Yönetim Sistemi Projesi
 ---
 ## Database ve Tablolar
 
-![CMS3](/img/CMS3.PNG)
+![CMS3](/img/CMS3.png)
 
-![customers](/img/CMScustomers.PNG)
+![customers](/img/CMScustomers.png)
 
-![projects](/img/CMSprojects.PNG)
+![projects](/img/CMSprojects.png)
 
-![system_users](/img/CMSsystem_users.PNG)
+![system_users](/img/CMSsystem_users.png)
